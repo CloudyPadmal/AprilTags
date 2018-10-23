@@ -49,7 +49,7 @@ workon fyp
 # Install tools
 pip install numpy
 # Make directory
-cd ~/opencv-3.1.0/
+cd ~/opencv-3.4.3/
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -67,7 +67,7 @@ sudo make install
 sudo ldconfig
 # Clean up
 cd ~
-rm -rf opencv-3.1.0 opencv_contrib-3.1.0 opencv.zip opencv_contrib.zip
+rm -rf opencv-3.4.3 opencv_contrib-3.4.3 opencv.zip opencv_contrib.zip
 # Clone my repo
 git clone https://github.com/CloudyPadmal/AprilTags.git
 cd AprilTags
