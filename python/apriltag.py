@@ -609,7 +609,7 @@ def main():
         from PIL import Image
 
     FILENAMES = ["IMG_0000.JPG"]
-    FILENAMES = ["TAGs.png"]
+    #FILENAMES = ["TAGs.png"]
     # python apriltag.py -c -k '(765.00, 764.18, 393.72, 304.66)' -s .127 ../images/mapping_feb_2014/*JPG
 
     #for filename in options.filenames:
