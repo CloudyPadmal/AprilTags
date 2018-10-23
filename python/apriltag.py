@@ -568,8 +568,8 @@ def main():
     parser = ArgumentParser(
         description='test apriltag Python bindings')
 
-    parser.add_argument('filenames', metavar='IMAGE', nargs='+',
-                        help='files to scan')
+    #parser.add_argument('filenames', metavar='IMAGE', nargs='+',
+    #                    help='files to scan')
 
     parser.add_argument('-n', '--no-gui', action='store_true',
                         help='suppress OpenCV gui')
@@ -578,7 +578,8 @@ def main():
                         help='output debug detection image')
 
     parser.add_argument('-k', '--camera-params', type=_camera_params,
-                        default=None,
+                        default='(1500.00, 1500.00, 600.00, 300.00)',#None,
+                        # (Focul lengthx, Focul lengthy, CamPosx, CamPosY)
                         help='intrinsic parameters for camera (in the form fx,fy,cx,cy)')
 
     parser.add_argument('-s', '--tag-size', type=float,
@@ -607,7 +608,12 @@ def main():
     if not _HAVE_CV2:
         from PIL import Image
 
-    for filename in options.filenames:
+    FILENAMES = ["IMG_0000.JPG"]
+    FILENAMES = ["TAGs.png"]
+    # python apriltag.py -c -k '(765.00, 764.18, 393.72, 304.66)' -s .127 ../images/mapping_feb_2014/*JPG
+
+    #for filename in options.filenames:
+    for filename in FILENAMES:
 
         if _HAVE_CV2:
             orig = cv2.imread(filename)
@@ -665,7 +671,7 @@ def main():
                 output.save('detections.png')
             
         if use_gui:
-            cv2.imshow('win', overlay)
+            cv2.imshow('Display', overlay)
             while cv2.waitKey(5) < 0:
                 pass
 
